@@ -1,0 +1,17 @@
+
+
+.header {
+   font-size: 28px;
+   background-color: azure;
+   padding: 10px;
+}
+
+.list {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+.link {
+    text-decoration: none;
+}

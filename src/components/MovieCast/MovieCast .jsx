@@ -1,0 +1,59 @@
+import {useParams} from'react-router-dom'
+import Loader from '../../components/Loader/Loader'
+import { getMovieCast } from '../../services/api';
+import ErrorMessage from '../ErrorMessage/ErrorMessage';
+import { useEffect, useState } from 'react';
+
+const MovieCast = () => {
+  
+  const { movieId } = useParams();
+  const [isLoading, setisLoading] = useState(false);
+  const [error, setError] = useState(false);
+  const [movieData, setMovieData] = useState(null);
+
+useEffect(() => {
+  if (!movieId) return;
+
+  async function fetchData() {
+    try {
+      setError(false);
+      setisLoading(true);
+      const response = await getMovieCast(movieId);
+      setMovieData(response.cast);     
+      
+    } catch (error) {
+      setError(true);
+    }
+    finally {
+      setisLoading(false);
+    }
+  }
+  fetchData()
+}, [movieId]);
+  
+
+
+  return (
+    <div>
+      {error && <ErrorMessage />}
+      {isLoading && <Loader />}
+      <ul>
+        {
+          movieData &&
+        
+        movieData.map(el => (
+            <li key={el.id}>
+              <img src={`https://image.tmdb.org/t/p/w200/${el.profile_path}`} alt={el.name} width={100} />
+              <p>{el.name}</p>
+              <p>Character: {el.character}</p>
+            </li>
+          )) 
+        }
+</ul>
+      
+
+    </div>
+  )
+}
+
+export default MovieCast 
