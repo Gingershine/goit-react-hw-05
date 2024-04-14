@@ -6,6 +6,7 @@ import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import { getMovie } from "../../services/api";
 import MovieList from "../../components/MovieList/MovieList";
 
+
 const MoviesPage = () => {
 
   const [searchParams, setSearchParams] = useSearchParams();
@@ -23,7 +24,7 @@ const MoviesPage = () => {
         const response = await getMovie(searchQuery);
         setMovies(response);
       } catch (error) {
-        setError(true);
+        setError(true);        
       }
       finally {
         setisLoading(false);
@@ -34,7 +35,7 @@ const MoviesPage = () => {
   }, [searchQuery]);
 
   const handleSearch = (query) => {
-    if (!query.length === 0) {
+    if (query.length === 0) {
       alert("Please enter a valid search query");
       return;
     }

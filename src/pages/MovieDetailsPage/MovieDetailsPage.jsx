@@ -1,9 +1,9 @@
-import { Link, useParams, useLocation } from "react-router-dom";
+import { Link, useParams, useLocation, NavLink } from "react-router-dom";
 import { Suspense, lazy, useEffect, useRef, useState } from "react";
 import { getMovieDetails } from "../../services/api";
 
 
-import { Routes, Route, Outlet } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import css from "./MovieDetailsPage.module.css";
 
 const MovieCast = lazy(() => import('../../components/MovieCast/MovieCast '))
@@ -67,14 +67,14 @@ const MovieDetailsPage = () => {
         <h3>Additional information</h3>
         <ul className={css.list}>
           <li >
-            <Link className={css.item} to="cast" >
+            <NavLink className={css.item} to="cast" >
               Cast
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link className={css.item} to="reviews" >
+            <NavLink className={css.item} to="reviews" >
               Reviews
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </div>
@@ -84,8 +84,7 @@ const MovieDetailsPage = () => {
           <Route path="cast" element={<MovieCast movieId={movieId} />} />
           <Route path="reviews" element={<MovieReviews movieId={movieId} />} />
         </Routes>
-      </Suspense>
-      <Outlet />
+      </Suspense>      
       </div>
   );
 }

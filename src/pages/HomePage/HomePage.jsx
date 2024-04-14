@@ -11,8 +11,7 @@ const [movies, setMovies] = useState([]);
 const [error, setError] = useState(false);
   
   useEffect(() => {
-    if (!movies) return;
-    async function fetchData() {
+     async function fetchData() {
       try {
         setError(false);
         setisLoading(true);
@@ -27,7 +26,7 @@ const [error, setError] = useState(false);
     }
     fetchData();
     
-  }, [movies]);
+  }, []);
   
   
   return (
