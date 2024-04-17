@@ -1,9 +1,15 @@
 #root {
+    --main-color: #222345;
+    --main-color-hover: #3d72aa;
+    
+    
+    color: var(--main-color);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 a {
     text-decoration: none;
+    color: var(--main-color);
 }
 
 ul {

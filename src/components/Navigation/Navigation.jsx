@@ -6,10 +6,10 @@ const Navigation = () => {
       <div>
           <header className={css.header}>
               <ul className={css.list}>
-                  <li>
+                  <li className={css.item}>
                       <NavLink className={css.link} to='/'>Home</NavLink>
                   </li>
-                  <li>
+                  <li className={css.item}>
                       <NavLink className={css.link} to='/movies'>Movies</NavLink>
                   </li>
               </ul>

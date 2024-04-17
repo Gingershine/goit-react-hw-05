@@ -5,11 +5,14 @@ display: flex;
     margin-top: 20px;
     padding: 10px;
     gap: 6px;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .input {
 border-radius: 4px;
  padding: 7px;
+ width: 400px;
 }
 
 .btn {

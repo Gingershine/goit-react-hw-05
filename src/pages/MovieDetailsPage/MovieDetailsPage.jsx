@@ -3,6 +3,7 @@ import { Suspense, lazy, useEffect, useRef, useState } from "react";
 import { getMovieDetails } from "../../services/api";
 
 
+
 import { Routes, Route } from "react-router-dom";
 import css from "./MovieDetailsPage.module.css";
 
@@ -47,32 +48,36 @@ const MovieDetailsPage = () => {
       {error && <ErrorMessage />}
 
       {movieData !== null && (
-        <div>
+        <div className={css.container}>
+          <div className={css.linkGb}>
           <Link to={backLinkRef.current}>Go back</Link><br />
-          <img src={movieData.poster_path ? `https://image.tmdb.org/t/p/w500${movieData.poster_path}` : `${defaultImg}` } alt={movieData.title} width={300}/>
-           <div>
-            <h2>{`${movieData.title} (${movieData.release_date.slice(0, 4)})`}</h2>            
-            <h3>Overview</h3>
-            <p>{`${movieData.overview}`}</p>
-            <h3>Genres</h3>
-            <p>
-              {movieData.genres.map(genre => (
-                <span key={genre.id}>{genre.name}  </span>
-              ))}
-            </p>
-      </div>
+          </div>
+            <div className={css.imageContainer}>
+            <img src={movieData.poster_path ? `https://image.tmdb.org/t/p/w500${movieData.poster_path}` : `${defaultImg}` } alt={movieData.title} width={300}/>
+              <div className={css.details}>
+                <h2>{`${movieData.title} (${movieData.release_date.slice(0, 4)})`}</h2>            
+                <h3>Overview</h3>
+                <p>{`${movieData.overview}`}</p>
+                <h3>Genres</h3>
+                <p>
+                  {movieData.genres.map(genre => (
+                    <span key={genre.id}>{genre.name}  </span>
+                  ))}
+                </p>
+              </div>
+            </div>
         </div>
       )}  
-      <div>
+      <div className={css.additionalInfo}>
         <h3>Additional information</h3>
         <ul className={css.list}>
-          <li >
-            <NavLink className={css.item} to="cast" >
+          <li className={css.item}>
+            <NavLink className={css.link}  to="cast" >
               Cast
             </NavLink>
           </li>
-          <li>
-            <NavLink className={css.item} to="reviews" >
+          <li className={css.item}>
+            <NavLink className={css.link} to="reviews" >
               Reviews
             </NavLink>
           </li>

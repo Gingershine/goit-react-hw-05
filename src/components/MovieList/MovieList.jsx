@@ -11,7 +11,7 @@ const MovieList = ({ movies }) => {
               {movies !== null && Array.isArray(movies) &&
                   movies.map(movie => (
                   <li key={movie.id} className={css.item}>
-                      <Link state={location} to={`/movies/${movie.id}`}>
+                      <Link className={css.link} state={location} to={`/movies/${movie.id}`}>
                           <h3 className={css.title}>{movie.title}</h3>                      
                       </Link>
                   </li>

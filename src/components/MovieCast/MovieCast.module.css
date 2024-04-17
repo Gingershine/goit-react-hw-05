@@ -1,0 +1,18 @@
+.cast {
+    display: flex;
+    gap: 15px;
+    row-gap: 30px;
+    flex-wrap: wrap;
+   
+}
+.item {
+    width: 115px;
+}
+
+.image {
+    height: 150px;
+}
+
+.name {
+    font-weight: 700;
+}

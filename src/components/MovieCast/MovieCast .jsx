@@ -3,6 +3,9 @@ import Loader from '../../components/Loader/Loader'
 import { getMovieCast } from '../../services/api';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import { useEffect, useState } from 'react';
+import css from './MovieCast.module.css';
+
+
 
 const MovieCast = () => {
   
@@ -34,17 +37,19 @@ useEffect(() => {
 
 
   return (
-    <div>
+    <div className={css.container}>
       {error && <ErrorMessage />}
       {isLoading && <Loader />}
-      <ul>
+      <ul className={css.cast}>
         {
           movieData &&
         
         movieData.map(el => (
-            <li key={el.id}>
+            <li className={css.item} key={el.id}>
+              <div className={css.image}>
               <img src={`https://image.tmdb.org/t/p/w200/${el.profile_path}`} alt={el.name} width={100} />
-              <p>{el.name}</p>
+              </div>
+              <p className={css.name}>{el.name}</p>
               <p>Character: {el.character}</p>
             </li>
           )) 

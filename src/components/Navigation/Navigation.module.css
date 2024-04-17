@@ -4,14 +4,39 @@
    font-size: 28px;
    background-color: azure;
    padding: 10px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .list {
     list-style-type: none;
     display: flex;
-    gap: 20px;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    
 }
 
 .link {
     text-decoration: none;
+    color: rgb(31, 32, 60);
+    text-decoration: none;
+    font-weight: 600;
+    
+}
+
+.link:hover {
+    color: #3d72aa;
+}
+
+.item {
+    padding: 20px;    
+}
+
+.item:nth-child(1) {
+    border-right: 2px solid #4882c0;
+    padding-right: 40px;
+}
+
+.item:nth-child(2) {
+    padding-left: 40px;
 }
